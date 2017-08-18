@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+ body
+
+  br
+  br
+  br
+  br
+
+  form(name="input", action="/api/signup", method="post")
+   input(type="text", name="fullName", placeholder="name")
+   br
+   br
+   input(type="text", name="emailAdress", placeholder="emailadress")
+   br
+   br
+   input(type="submit", value ="signup")
+
+   br
+   br
+   br
+   br
+   a.btn.btn-primary(href="/users/auth/facebook", role="button") Facebook       
+
+
+   include footer.pug

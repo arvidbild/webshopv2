@@ -1,0 +1,35 @@
+{
+    "Users": {
+     "_model": "User",
+    
+        "Melker": {
+            
+        "fullName": "Melker",
+        "emailAdress": "Melker@.se",
+        "imagePath": "test.www",
+        "assets" : "hej"
+        }
+    },
+     
+     "Products": {
+     "_model": "Product",
+    
+        "General": {
+            
+        "name": "General",
+        "price": 10,
+        "description": "Drängarnas snus",
+        "brand": "Swedish Match",
+        "imagePath": "../images/General.jpg"       
+        },
+
+        "Göteborgs Rapé": {
+
+        "name": "Göteborgs Rapé",
+        "price": 20,
+        "description": "finaste snuset",
+        "brand": "Skruff Snus AB",
+        "imagePath": "../images/rape.jpg"
+        }
+    }
+}
