@@ -48,6 +48,7 @@ db.once("open", function() {
 //Set the port 
 app.set("port", process.env.PORT || 5000);
 
+//Heroku dynamicly assign the app a PORT, its assign to the PORT env. Therefore i can pull the port from proccess.env.
 app.listen(process.env.PORT || 5000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
