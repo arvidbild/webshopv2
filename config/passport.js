@@ -19,8 +19,8 @@ var port = process.env.PORT
 
 //use facebook login with passport strategy (process.env. is enviroment variables)
 passport.use(new FacebookStrategy({
-    clientID: passwords.clientID,
-    clientSecret: passwords.clientSecret,
+    clientID: clientID,
+    clientSecret: clientSecret,
     callbackURL: "http://" + port + "/users/auth/facebook/callback",
     profileFields: ['id', 'displayName', 'link', 'photos', 'emails']
   },
