@@ -1,9 +1,9 @@
 var passport = require('passport');
 var User = require('../src/models/User');
 var FacebookStrategy = require("passport-facebook").Strategy;
-var passwords = require("./passwords/passwords.js");
+//var passwords = require("./passwords/passwords.js");
 
-console.log(passwords);
+//console.log(passwords);
 
 passport.serializeUser(function (user, done) {
     done(null, user.id);
