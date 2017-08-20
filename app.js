@@ -30,9 +30,9 @@ var app = express();
 
 /** 
 Connect to the database
+mongodb://localhost:27017/webshopv2
 **/
 mongoose.connect("mongodb://heroku_g39126c8:td8tr890n43do6runsrcaqiol8@ds151153.mlab.com:51153/heroku_g39126c8");
-require("./config/passport.js");
 var db = mongoose.connection;
 
 db.on("error", console.error.bind(console,"connetion error"));
