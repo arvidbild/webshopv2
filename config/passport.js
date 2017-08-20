@@ -1,7 +1,7 @@
 var passport = require('passport');
 var User = require('../src/models/User');
 var FacebookStrategy = require("passport-facebook").Strategy;
-var passwords = require("passwords");
+var passwords = require("passwords.js");
 
 console.log(passwords);
 
