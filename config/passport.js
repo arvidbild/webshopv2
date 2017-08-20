@@ -1,7 +1,7 @@
 var passport = require('passport');
 var User = require('../src/models/User');
 var FacebookStrategy = require("passport-facebook").Strategy;
-var passwords = require("passwords");
+var passwords = require("./passwords");
 
 console.log(passwords);
 
@@ -19,8 +19,8 @@ var port = process.env.PORT
 
 //use facebook login with passport strategy (process.env. is enviroment variables)
 passport.use(new FacebookStrategy({
-    clientID: "1564331986944420",
-    clientSecret: "481bc9b42684dd0431322e0d7eead698",
+    clientID: passwords.clientID,
+    clientSecret: passwords.clientSecret,
     callbackURL: "http://" + port + "/users/auth/facebook/callback",
     profileFields: ['id', 'displayName', 'link', 'photos', 'emails']
   },
