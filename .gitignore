@@ -1,2 +1,2 @@
 node_modules
-/config/passwords.js
+./config/passwords.js
