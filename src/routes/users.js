@@ -19,6 +19,17 @@ router.get('/auth/facebook/callback',
     res.redirect('/users/profile');
   });
 
+router.get("/auth/google", 
+	passport.authenticate("google",{scope: ["email"]}));
+
+router.get("/auth/google/callback",
+  passport.authenticate('facebook', { failureRedirect: '/' }), function(req, res) {
+  	console.log("the authentication was Successful");
+    
+    // Successful authentication, redirect to profile.
+    res.redirect('/users/profile');
+  });
+
 router.get("/profile", function(req,res,next){
 	res.render("profile");
 });
