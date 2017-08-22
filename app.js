@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var morgan = require("morgan");
 var pug = require("pug");
 var passport = require("passport");
+var flash = require("connect-flash");
 
 //mongoose
 var mongoose = require("mongoose");
@@ -74,21 +75,23 @@ app.use(morgan('dev'));
 // Use the session middleware
 app.use(session({ 
              secret: 'keyboard cat', 
-            //resave: false, //don't save session if unmodified 
- //saveUninitialized: false, // don't create session until something stored 
+            resave: false, //don't save session if unmodified 
+ saveUninitialized: false, // don't create session until something stored 
               store: new MongoStore({mongooseConnection: mongoose.connection}),
              cookie: {maxAge: 180 * 60 * 1000} 
 }));
+//The flash is typically used in combination with redirects, ensuring that the message is available to the next page that is to be rendered.
+app.use(flash());
+
+//Initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 //middleware for the session to be reached too all views
 app.use(function(req,res,next){
   res.locals.session = req.session;
   next();
 })
-
-//Initialize passport
-app.use(passport.initialize());
-app.use(passport.session());
 
 // setup our static route to serve files from the "public" folder
 app.use("/", express.static('public'));
