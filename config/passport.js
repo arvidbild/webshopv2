@@ -17,13 +17,13 @@ passport.deserializeUser(function (id, done) {
 });
 
 var port = process.env.PORT
-
+console.log(port);
 //use facebook login with passport strategy (process.env. is enviroment variables)
 //use passwords.clientID in localenviroment and localhost:5000
 passport.use(new FacebookStrategy({
     clientID: process.env.clientID, 
     clientSecret: process.env.clientSecret,
-    callbackURL: "http://"+process.port+"/users/auth/facebook/callback",
+    callbackURL: "http://"+ port +"/users/auth/facebook/callback",
     profileFields: ['id', 'displayName', 'link', 'photos', 'emails']
   },
     function (accessToken, refreshToken, profile, done){
