@@ -29,9 +29,10 @@ var app = express();
 
 /** 
 Connect to the database
-mongodb://localhost:27017/webshopv2
+use this link in local/production enviroment.
+mongodb://heroku_g39126c8:td8tr890n43do6runsrcaqiol8@ds151153.mlab.com:51153/heroku_g39126c8
 **/
-mongoose.connect("mongodb://heroku_g39126c8:td8tr890n43do6runsrcaqiol8@ds151153.mlab.com:51153/heroku_g39126c8");
+mongoose.connect("mongodb://localhost:27017/webshopv2");
 var db = mongoose.connection;
 
 db.on("error", console.error.bind(console,"connetion error"));
@@ -49,10 +50,11 @@ db.once("open", function() {
 app.set("port", process.env.PORT || 5000);
 
 //Heroku dynamicly assign the app a PORT, its assign to the PORT env. Therefore i can pull the port from proccess.env.
-app.listen(process.env.PORT || 5000, function(){
+//Hide this in local enviroment.
+/*app.listen(process.env.PORT || 5000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
-
+*/
 
 // view engine setup
 app.set('view engine', 'pug');
