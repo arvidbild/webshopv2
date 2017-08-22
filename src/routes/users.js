@@ -7,9 +7,9 @@ router.get("/signup", function(req,res,next){
 	res.render("signup");
 }); 
 
-
+//The scope has to be there since it asking the user for additional permission to use the email
 router.get('/auth/facebook',
-  passport.authenticate('facebook'));
+  passport.authenticate('facebook',{scope: ["email"]}));
 
 router.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/' }), function(req, res) {
