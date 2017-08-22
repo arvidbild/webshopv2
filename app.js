@@ -7,6 +7,8 @@ var morgan = require("morgan");
 var pug = require("pug");
 var passport = require("passport");
 var flash = require("connect-flash");
+var validator = require('express-validator');
+
 
 //mongoose
 var mongoose = require("mongoose");
@@ -67,6 +69,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(validator());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // morgan gives us http request logging
