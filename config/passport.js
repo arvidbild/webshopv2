@@ -24,7 +24,7 @@ passport.deserializeUser(function (id, done) {
 passport.use(new FacebookStrategy({
     clientID: process.env.clientID, 
     clientSecret: process.env.clientSecret,
-    callbackURL: "http://murmuring-garden-83350.herokuapp.com/users/auth/facebook/callback",
+    callbackURL: "https://sydlw1tyju7ocn:5iUSUJ24U_KndejXjUYoKVHbRQ@us-east-static-03.quotaguard.com:9294/users/auth/facebook/callback",
     profileFields: ['id', 'displayName', 'link', 'photos', 'emails']
   },
     function (accessToken, refreshToken, profile, done){
