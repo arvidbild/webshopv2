@@ -23,7 +23,7 @@ var port = process.env.PORT
 passport.use(new FacebookStrategy({
     clientID: process.env.clientID, 
     clientSecret: process.env.clientSecret,
-    callbackURL: "http://"+port+"/users/auth/facebook/callback",
+    callbackURL: "http://"+process.port+"/users/auth/facebook/callback",
     profileFields: ['id', 'displayName', 'link', 'photos', 'emails']
   },
     function (accessToken, refreshToken, profile, done){
