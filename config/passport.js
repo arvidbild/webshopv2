@@ -3,8 +3,8 @@ var User = require('../src/models/User');
 var FacebookStrategy = require("passport-facebook").Strategy;
 
 //Uncomment this in local enviroment to get the clientID & clientSecret
-var passwords = require("./passwords/passwords.js");
-console.log(passwords);
+//var passwords = require("./passwords/passwords.js");
+//console.log(passwords);
 
 passport.serializeUser(function (user, done) {
     done(null, user.id);
@@ -16,14 +16,15 @@ passport.deserializeUser(function (id, done) {
     });
 });
 
-var port = process.env.PORT
-console.log(port);
+//var port = process.env
+//console.log(port);
+
 //use facebook login with passport strategy (process.env. is enviroment variables)
 //use passwords.clientID in localenviroment and localhost:5000
 passport.use(new FacebookStrategy({
-    clientID: passwords.clientID, 
-    clientSecret: passwords.clientSecret,
-    callbackURL: "http://localhost:5000/users/auth/facebook/callback",
+    clientID: process.env.clientID, 
+    clientSecret: process.env.clientSecret,
+    callbackURL: "http://murmuring-garden-83350.herokuapp.com/users/auth/facebook/callback",
     profileFields: ['id', 'displayName', 'link', 'photos', 'emails']
   },
     function (accessToken, refreshToken, profile, done){
