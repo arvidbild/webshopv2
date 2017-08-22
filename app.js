@@ -30,9 +30,10 @@ var app = express();
 /** 
 Connect to the database
 use this link in local/production enviroment.
+mongodb://localhost:27017/webshopv2
 mongodb://heroku_g39126c8:td8tr890n43do6runsrcaqiol8@ds151153.mlab.com:51153/heroku_g39126c8
 **/
-mongoose.connect("mongodb://localhost:27017/webshopv2");
+mongoose.connect("mongodb://heroku_g39126c8:td8tr890n43do6runsrcaqiol8@ds151153.mlab.com:51153/heroku_g39126c8");
 var db = mongoose.connection;
 
 db.on("error", console.error.bind(console,"connetion error"));
@@ -51,10 +52,10 @@ app.set("port", process.env.PORT || 5000);
 
 //Heroku dynamicly assign the app a PORT, its assign to the PORT env. Therefore i can pull the port from proccess.env.
 //Hide this in local enviroment.
-/*app.listen(process.env.PORT || 5000, function(){
+app.listen(process.env.PORT || 5000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
-*/
+
 
 // view engine setup
 app.set('view engine', 'pug');
@@ -73,8 +74,8 @@ app.use(morgan('dev'));
 // Use the session middleware
 app.use(session({ 
              secret: 'keyboard cat', 
-            resave: false, //don't save session if unmodified 
- saveUninitialized: false, // don't create session until something stored 
+            //resave: false, //don't save session if unmodified 
+ //saveUninitialized: false, // don't create session until something stored 
               store: new MongoStore({mongooseConnection: mongoose.connection}),
              cookie: {maxAge: 180 * 60 * 1000} 
 }));
